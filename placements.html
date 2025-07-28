@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placements - Global College of Engineering & Technology, Kadapa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for placements page */
+        .recruiters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .recruiter-logo {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            transition: transform 0.3s ease;
+        }
+        
+        .recruiter-logo:hover {
+            transform: translateY(-5px);
+        }
+        
+        .recruiter-logo img {
+            max-width: 100%;
+            max-height: 60px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .recruiter-logo:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .placement-stats {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-card i {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .stat-card h3 {
+            font-size: 2.2rem;
+            color: #e74c3c;
+            margin: 10px 0;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .story-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-content h3 {
+            margin: 10px 0 5px;
+            color: #2c3e50;
+        }
+        
+        .company {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .placement-cta {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .placement-cta .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .cta-content {
+            background: rgba(255,255,255,0.1);
+            padding: 40px 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .cta-content h2 {
+            margin-top: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .recruiters-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                max-width: 100%;
+            }
+        }
+
+        /* Page Hero Styles (same as placements page) */
+.page-hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.page-hero p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .page-hero {
+        height: 400px;
+        padding: 0 20px;
+    }
+    
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-hero p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero {
+        height: 350px;
+    }
+    
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .page-hero p {
+        font-size: 1rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 9398302073, 7729988041</span>
+                <span><i class="fas fa-envelope"></i> admissions.glbc@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="particles" id="particles-js"></div>
+        <div class="shape triangle" style="top: 10%; left: 5%; animation-duration: 40s;"></div>
+        <div class="shape square" style="bottom: 10%; right: 5%; animation-duration: 50s;"></div>
+        <div class="shape circle" style="top: 30%; right: 10%; animation-duration: 60s;"></div>
+        
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Global College Logo">
+                <div class="logo-text">
+                    <h1>GLOBAL COLLEGE OF ENGINEERING & TECHNOLOGY, KADAPA</h1>
+                    <p class="approved">(Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur, Recognized by UGC & ISO 9001-2015)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Admissions Open Sliding Banner -->
+    <div class="admissions-slide">
+        <div class="slide-container">
+            <span class="slide-text">ADMISSIONS OPEN 2025-26</span>
+            <span>For B.Tech, M.Tech & MBA Programs</span>
+            <a href="prebooking.html" class="slide-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="courses.html">Courses</a></li>
+                <li class="nav-item"><a href="facilities.html">Facilities</a></li>
+                <li class="nav-item active"><a href="placements.html">Placements</a></li>
+                <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a href="admissions.html">Admissions</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Placements Hero -->
+    <!-- <section class="page-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/OIP (22).jpeg');">
+        <div class="container">
+            <h1>Placement Cell</h1>
+            <p>Connecting Talent with Opportunity</p>
+        </div>
+    </section> -->
+
+<section class="page-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/OIP (22).jpeg');">
+    <div class="container">
+        <h1 style="color: white;">Placement Cell</h1>
+        <p>Connecting Talent with Opportunity</p>
+    </div>
+</section>
+    
+    <!-- Placement Stats -->
+    <section class="placement-stats">
+        <div class="container">
+            <h2 class="section-title">Our Placement Record</h2>
+            <p class="section-subtitle">We take pride in our students' achievements and our strong industry connections</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-building"></i>
+                    <h3>150+</h3>
+                    <p>Companies Visited</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>90%</h3>
+                    <p>Placement Rate (2023)</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>15 LPA</h3>
+                    <p>Highest Package</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>800+</h3>
+                    <p>Students Placed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiters Section -->
+    <section class="recruiters-section">
+        <div class="container">
+            <h2 class="section-title">Our Esteemed Recruiters</h2>
+            <p class="section-subtitle">We're proud to be associated with top companies across industries</p>
+            <div class="recruiters-grid">
+                <div class="recruiter-logo"><img src="https://indiancompanies.in/wp-content/uploads/2020/05/TCS-Logo-Tata-consultancy-service-1920x1144.png" alt="TCS"></div>
+                <div class="recruiter-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Infosys_logo.svg/1200px-Infosys_logo.svg.png" alt="Infosys"></div>
+                <div class="recruiter-logo"><img src="images/OIP (23).jpeg" alt="Wipro"></div>
+                <div class="recruiter-logo"><img src="images/OIP (24).jpeg" alt="Cognizant"></div>
+                <div class="recruiter-logo"><img src="images/Tech_Mahindra-Logo.wine.png" alt="Tech Mahindra"></div>
+                <div class="recruiter-logo"><img src="images/OIP (26).jpeg" alt="HCL"></div>
+                <div class="recruiter-logo"><img src="images/OIP (25).jpeg" alt="Accenture"></div>
+                <div class="recruiter-logo"><img src="images/OIP (27).jpeg" alt="Capgemini"></div>
+                <div class="recruiter-logo"><img src="images/OIP (28).jpeg" alt="Microsoft"></div>
+                <div class="recruiter-logo"><img src="images/OIP (29).jpeg" alt="HP"></div>
+                <div class="recruiter-logo"><img src="images/OIP (30).jpeg" alt="Google"></div>
+                <div class="recruiter-logo"><img src="images/OIP (31).jpeg" alt="Amazon"></div>
+                <div class="recruiter-logo"><img src="images/OIP (32).jpeg" alt="Apple"></div>
+                <div class="recruiter-logo"><img src="images/OIP (33).jpeg" alt="IBM"></div>
+                <div class="recruiter-logo"><img src="images/OIP (34).jpeg" alt="Samsung"></div>
+                <div class="recruiter-logo"><img src="images/OIP (35).jpeg" alt="Intel"></div>
+                <div class="recruiter-logo"><img src="images/OIP (36).jpeg" alt="Oracle"></div>
+                <div class="recruiter-logo"><img src="images/OIP (37).jpeg" alt="Deloitte"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Process -->
+    <section class="placement-process">
+        <div class="container">
+            <h2 class="section-title">Our Placement Process</h2>
+            <p class="section-subtitle">A structured approach to ensure every student gets the best opportunities</p>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Registration</h3>
+                    <p>Students register with the placement cell and submit their resumes for our talent pool</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Training</h3>
+                    <p>Comprehensive pre-placement training on aptitude, technical skills and soft skills</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Mock Interviews</h3>
+                    <p>Practice interviews with HR professionals and technical experts</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Company Visits</h3>
+                    <p>On-campus and virtual recruitment drives by top companies</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Placement</h3>
+                    <p>Final selection and offer letters with our guidance and support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="section-title">Our Success Stories</h2>
+            <p class="section-subtitle">Hear from our alumni who are making waves in the industry</p>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Placed Student">
+                    <div class="story-content">
+                        <h3>Rahul Sharma</h3>
+                        <p class="company">TCS, ₹8.5 LPA</p>
+                        <p>"The placement cell's training programs were instrumental in helping me crack the TCS interview. The mock interviews were especially helpful!"</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Placed Student">
+                    <div class="story-content">
+                        <h3>Priya Reddy</h3>
+                        <p class="company">Microsoft, ₹15 LPA</p>
+                        <p>"The technical workshops organized by the placement cell gave me the edge I needed to secure this position at Microsoft."</p>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Placed Student">
+                    <div class="story-content">
+                        <h3>Kiran Kumar</h3>
+                        <p class="company">Amazon, ₹12 LPA</p>
+                        <p>"The placement cell's industry connections helped me get multiple interview opportunities with top tech companies."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement CTA -->
+    <section class="placement-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>For Companies</h2>
+                <p>Looking for talented engineers and managers? Partner with us to access our pool of bright, skilled graduates ready to contribute to your organization.</p>
+                <a href="contact.html" class="btn">Schedule Campus Drive</a>
+            </div>
+            <div class="cta-content">
+                <h2>For Students</h2>
+                <p>Register with our placement cell to get access to exclusive job opportunities, training programs, and career guidance sessions.</p>
+                <a href="#" class="btn">Register Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Global College of Engineering & Technology, Kadapa is committed to providing quality education with modern infrastructure and experienced faculty.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="placements.html">Placements</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="courses.html#btech">B.Tech</a></li>
+                        <li><a href="courses.html#mtech">M.Tech</a></li>
+                        <li><a href="courses.html#mba">MBA</a></li>
+                        <li><a href="courses.html">All Courses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Near Toll Plaza, NH-40, Chinnamachupalli (V), Chennur (M), KADAPA - 516 162.</p>
+                    <p><i class="fas fa-phone"></i> 9398302073, 7729988041</p>
+                    <p><i class="fas fa-envelope"></i> admissions.glbc@gmail.com</p>
+                    <p><i class="fas fa-globe"></i> www.glbc.ac.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Global College of Engineering & Technology, Kadapa. All Rights Reserved.</p>
+                <p>Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur, Recognized by UGC & ISO 9001-2015</p>
+            </div>
+        </div>
+    </footer>
+<a href="https://wa.me/919398302073" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+    <script src="script.js"></script>
+</body>
+</html>

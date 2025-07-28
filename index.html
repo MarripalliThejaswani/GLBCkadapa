@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore B.Tech, M.Tech, and MBA programs at Global College of Engineering & Technology, Kadapa.">
+<meta name="keywords" content="engineering courses, MBA, M.Tech, B.Tech, Kadapa college, Global College, AICTE, JNTUA">
+
+    <title>Global College of Engineering & Technology, Kadapa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* Admissions Slide Banner */
+.admissions-slide {
+    background: linear-gradient(90deg, #0d4a96 0%, #1a6fc9 100%);
+    color: white;
+    padding: 12px 0;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(-100%);
+    animation: slideDown 1s forwards 0.5s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.slide-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.slide-text {
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.slide-text::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateY(-50%) scale(1); opacity: 1; }
+    50% { transform: translateY(-50%) scale(1.5); opacity: 0.7; }
+    100% { transform: translateY(-50%) scale(1); opacity: 1; }
+}
+
+.slide-btn {
+    background: #ffcc00;
+    color: #0d4a96;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.slide-btn:hover {
+    background: #ffd633;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .slide-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .slide-text {
+        font-size: 18px;
+    }
+    
+    .slide-text::after {
+        display: none;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 9398302073, 7729988041</span>
+                <span><i class="fas fa-envelope"></i> admissions.glbc@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Header with Advanced Animations -->
+    <header class="header">
+        <!-- Particle Background -->
+        <div class="particles" id="particles-js"></div>
+        
+        <!-- Geometric Shapes -->
+        <div class="shape triangle" style="top: 10%; left: 5%; animation-duration: 40s;"></div>
+        <div class="shape square" style="bottom: 10%; right: 5%; animation-duration: 50s;"></div>
+        <div class="shape circle" style="top: 30%; right: 10%; animation-duration: 60s;"></div>
+        
+        <div class="container">
+            <div class="logo">
+                <!-- Using a generic university logo placeholder from Unsplash -->
+                <img src="images/logo.jpg" alt="Global College Logo">
+                <div class="logo-text">
+                    <h1 style="color: white;">GLOBAL COLLEGE OF ENGINEERING & TECHNOLOGY, KADAPA</h1>
+                    <p class="approved">(Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur, Recognized by UGC & ISO 9001-2015)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admissions Open Sliding Banner -->
+    <div class="admissions-slide">
+        <div class="slide-container">
+            <span class="slide-text">ADMISSIONS OPEN 2025-26</span>
+            <span>For B.Tech, M.Tech & MBA Programs</span>
+            <a href="prebooking.html" class="slide-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="courses.html">Courses</a></li>
+                <li class="nav-item"><a href="facilities.html">Facilities</a></li>
+                <li class="nav-item"><a href="placements.html">Placements</a></li>
+                <li class="nav-item"><a href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a href="admissions.html">Admissions</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Light GLBC Seal -->
+    <section class="hero">
+        <div class="hero-slider">
+            <!-- Slide 1 - Quality Education -->
+            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+                <div class="slide-content">
+                    <!-- Light GLBC Seal -->
+                    <div class="glbc-light-seal">
+                        <div class="seal-container">
+                            <div class="seal-ring">
+                                <div class="seal-center">
+                                    <span>GLBC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 style="color: aliceblue;" class="fade-in">Quality Education for Bright Future</h2>
+                    <p class="fade-in">30 Acres lush green campus with modern infrastructure</p>
+                    <a href="admissions.html" class="btn slide-in">Apply Now</a>
+                </div>
+            </div>
+            
+            <!-- Slide 2 - Facilities -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+                <div class="slide-content">
+                    <!-- Light GLBC Seal -->
+                    <div class="glbc-light-seal">
+                        <div class="seal-container">
+                            <div class="seal-ring">
+                                <div class="seal-center">
+                                    <span>GLBC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 style="color: aliceblue";class="fade-in">State-of-the-art Facilities</h2>
+                    <p class="fade-in">Experience world-class education with our advanced facilities</p>
+                    <a href="facilities.html" class="btn slide-in">Explore Facilities</a>
+                </div>
+            </div>
+            
+            <!-- Slide 3 - Industry Programs -->
+            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+                <div class="slide-content">
+                    <!-- Light GLBC Seal -->
+                    <div class="glbc-light-seal">
+                        <div class="seal-container">
+                            <div class="seal-ring">
+                                <div class="seal-center">
+                                    <span>GLBC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 style="color: aliceblue";class="fade-in">Industry-Ready Programs</h2>
+                    <p class="fade-in">Get trained by experienced faculty with industry exposure</p>
+                    <a href="courses.html" class="btn slide-in">View Courses</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <div class="quick-link-item zoom-effect">
+                <a href="admissions.html">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Admissions</h3>
+                    <p>Apply for 2024-25 batch</p>
+                </a>
+            </div>
+            <div class="quick-link-item zoom-effect">
+                <a href="courses.html">
+                    <i class="fas fa-book"></i>
+                    <h3>Courses</h3>
+                    <p>Explore our programs</p>
+                </a>
+            </div>
+            <div class="quick-link-item zoom-effect">
+                <a href="facilities.html">
+                    <i class="fas fa-building"></i>
+                    <h3>Facilities</h3>
+                    <p>World-class infrastructure</p>
+                </a>
+            </div>
+            <div class="quick-link-item zoom-effect">
+                <a href="contact.html">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>Near Toll Plaza, NH-40</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content fade-in">
+                <h2>Welcome to Global College</h2>
+                <p>Global College of Engineering & Technology, Kadapa is a premier institution approved by AICTE, New Delhi and affiliated to JNTUA, Anantapur. Our 30-acre lush green campus on NH-40 boasts modern infrastructure and state-of-the-art facilities.</p>
+                <p>We are committed to providing quality education with experienced faculty, industry exposure, and excellent placement opportunities to shape the future of our students.</p>
+                <a href="about.html" class="btn">Read More</a>
+            </div>
+            <div class="about-image slide-in-right">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Global College Campus">
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Highlights -->
+    <section class="courses-highlight">
+        <div class="container">
+            <h2 class="section-title">Our Courses</h2>
+            <div class="courses-grid">
+                <div class="course-card hover-effect">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>B.Tech</h3>
+                    <p>Civil, EEE, Mech., ECE & CSE</p>
+                    <a href="courses.html#btech" class="btn-small">Details</a>
+                </div>
+                <div class="course-card hover-effect">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>M.Tech</h3>
+                    <p>CPM, PS, TSES, VLSID & CSE</p>
+                    <a href="courses.html#mtech" class="btn-small">Details</a>
+                </div>
+                <div class="course-card hover-effect">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Management</h3>
+                    <p>MBA programs</p>
+                    <a href="courses.html#mba" class="btn-small">Details</a>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="courses.html" class="btn">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities-section">
+        <div class="container">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="facilities-grid">
+                <div class="facility-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Library">
+                    <div class="facility-content">
+                        <h3>Digital Library</h3>
+                        <p>Well-stocked with books, journals, periodicals and e-learning materials</p>
+                    </div>
+                </div>
+                <div class="facility-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Lab">
+                    <div class="facility-content">
+                        <h3>Advanced Labs</h3>
+                        <p>State-of-the-art computing facilities with necessary software</p>
+                    </div>
+                </div>
+                <div class="facility-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Hostel">
+                    <div class="facility-content">
+                        <h3>Hostel</h3>
+                        <p>Separate campus hostel for boys & girls with attached bathroom</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="facilities.html" class="btn">Explore All Facilities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrance Codes Section -->
+    <section class="entrance-codes">
+        <div class="container">
+            <h2 class="section-title">Admission Codes</h2>
+            <div class="code-grid">
+                <div class="code-card glow-effect">
+                    <div class="code-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>EAMCET</h3>
+                    <p>Engineering Entrance</p>
+                    <div class="code-value">GLBC</div>
+                </div>
+                <div class="code-card glow-effect">
+                    <div class="code-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>ECET</h3>
+                    <p>Engineering Common Entrance</p>
+                    <div class="code-value">GLBC</div>
+                </div>
+                <div class="code-card glow-effect">
+                    <div class="code-icon">
+                        <i class="fas fa-business-time"></i>
+                    </div>
+                    <h3>I-CET</h3>
+                    <p>Integrated Common Entrance</p>
+                    <div class="code-value">GLBC</div>
+                </div>
+                <div class="code-card glow-effect">
+                    <div class="code-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>PG CET</h3>
+                    <p>Post Graduate Entrance</p>
+                    <div class="code-value">GLBC</div>
+                </div>
+                <div class="code-card glow-effect">
+                    <div class="code-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>POLYCET</h3>
+                    <p>Polytechnic Entrance</p>
+                    <div class="code-value">GLBC</div>
+                </div>
+            </div>
+            <div class="code-notice">
+                <p><i class="fas fa-info-circle"></i> Use code <strong>GLBC</strong> when applying through any of these entrance exams</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Students Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p>"Global College provided me with excellent education and placement opportunities. The faculty is very supportive and knowledgeable."</p>
+                    <div class="student-info">
+                        <h4>Rahul Sharma</h4>
+                        <p>B.Tech CSE, Placed at TCS</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The infrastructure and labs are world-class. Industrial visits and guest lectures helped me gain practical knowledge."</p>
+                    <div class="student-info">
+                        <h4>Priya Reddy</h4>
+                        <p>M.Tech VLSI</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"The hostel facilities are excellent with all amenities. The campus is secure with 24/7 CCTV surveillance."</p>
+                    <div class="student-info">
+                        <h4>Kiran Kumar</h4>
+                        <p>B.Tech Mechanical</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-controls">
+                <button class="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Journey?</h2>
+                <p>Join Global College for quality education and bright future</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="admissions.html" class="btn btn-light">Apply Now</a>
+                <a href="contact.html" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Global College of Engineering & Technology, Kadapa is committed to providing quality education with modern infrastructure and experienced faculty.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="courses.html#btech">B.Tech</a></li>
+                        <li><a href="courses.html#mtech">M.Tech</a></li>
+                        <li><a href="courses.html#mba">MBA</a></li>
+                        <li><a href="courses.html">All Courses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Near Toll Plaza, NH-40, Chinnamachupalli (V), Chennur (M), KADAPA - 516 162.</p>
+                    <p><i class="fas fa-phone"></i> 9398302073, 7729988041</p>
+                    <p><i class="fas fa-envelope"></i> admissions.glbc@gmail.com</p>
+                    <p><i class="fas fa-globe"></i> www.glbc.ac.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Global College of Engineering & Technology, Kadapa. All Rights Reserved.</p>
+                <p>Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur, Recognized by UGC & ISO 9001-2015</p>
+            </div>
+        </div>
+    </footer>
+<a href="https://wa.me/919398302073" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

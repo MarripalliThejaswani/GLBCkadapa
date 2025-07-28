@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global College of Engineering & Technology - Choose Your Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General styles for the entire page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif; /* Using Inter font for modern look */
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f4c81 0%, #2a72b5 100%); /* Slightly darker, richer blue gradient */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+        }
+
+        /* Main container for the content */
+        .container {
+            background: #ffffff; /* Pure white background for crispness */
+            border-radius: 20px; /* More rounded corners */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Deeper, softer shadow */
+            width: 100%;
+            max-width: 1000px; /* Increased max-width for more spacious layout */
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 1s ease-out; /* Fade-in animation for the container */
+        }
+
+        /* Keyframe for fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header section styling */
+        .header {
+            background: linear-gradient(90deg, #0f4c81 0%, #2a72b5 100%); /* Consistent gradient with body */
+            color: white;
+            padding: 40px 30px; /* More vertical padding */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* For subtle background patterns/elements if added */
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px; /* More space below logo */
+        }
+
+        .logo-icon-circle {
+            width: 80px; /* Larger icon circle */
+            height: 80px;
+            background: #ffffff; /* White background for icon */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px; /* More space to the right */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Shadow for the circle */
+        }
+
+        .logo-icon-circle i {
+            font-size: 45px; /* Larger icon */
+            color: #0f4c81; /* Darker blue for contrast */
+        }
+
+        .logo-text {
+            text-align: left;
+        }
+
+        .logo-text h1 {
+            font-size: 28px; /* Larger main title */
+            font-weight: 800; /* Bolder font */
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+        }
+
+        .logo-text p {
+            font-size: 16px; /* Slightly larger subtitle */
+            opacity: 0.95; /* Less opaque for better readability */
+            margin-top: 8px; /* More space below main title */
+        }
+
+        .title {
+            font-size: 38px; /* Even larger, more impactful title */
+            font-weight: 800;
+            margin: 25px 0 20px; /* More vertical spacing */
+            position: relative;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15); /* Stronger text shadow */
+        }
+
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px; /* Lower underline */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px; /* Wider, more prominent underline */
+            height: 5px; /* Thicker underline */
+            background: #ffc107; /* Brighter yellow/gold for accent */
+            border-radius: 3px;
+        }
+
+        .subtitle {
+            font-size: 20px; /* Larger subtitle */
+            margin-top: 15px; /* More space */
+            opacity: 0.9;
+        }
+
+        /* Content area for program cards */
+        .content {
+            padding: 40px; /* More padding around content */
+            text-align: center;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Larger minimum width for cards */
+            gap: 35px; /* Increased gap between cards */
+            margin-top: 40px; /* More space from header */
+            justify-content: center;
+        }
+
+        .program-card {
+            background: #fdfdfd; /* Slightly off-white for depth */
+            border-radius: 15px; /* Consistent rounding */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Refined shadow */
+            padding: 30px; /* More internal padding */
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease; /* Smoother, bouncier transition */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e0e0e0; /* Subtle border */
+        }
+
+        .program-card:hover {
+            transform: translateY(-12px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+            border-color: #2a72b5; /* Highlight border on hover */
+        }
+
+        .program-card h3 {
+            font-size: 26px; /* Larger program title */
+            color: #0f4c81; /* Darker blue */
+            margin-bottom: 18px; /* More space */
+            font-weight: 700;
+            letter-spacing: -0.5px; /* Tighter letter spacing */
+        }
+
+        .program-card p {
+            font-size: 17px; /* Larger description text */
+            color: #444; /* Darker text for readability */
+            line-height: 1.7; /* Increased line height */
+            margin-bottom: 25px; /* More space before button */
+            flex-grow: 1;
+        }
+
+        /* Call-to-action buttons within cards */
+        .program-card .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #0d4a96 0%, #1a6fc9 100%); /* Original button gradient */
+            color: white;
+            padding: 15px 30px; /* Larger padding for buttons */
+            border: none;
+            border-radius: 10px; /* More rounded buttons */
+            font-size: 17px; /* Slightly larger font for button text */
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none; /* Remove underline for links */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger button shadow */
+            letter-spacing: 0.5px; /* Slightly spaced letters */
+        }
+
+        .program-card .btn:hover {
+            background: linear-gradient(90deg, #1a6fc9 0%, #0d4a96 100%); /* Reverse gradient on hover */
+            transform: translateY(-3px); /* More pronounced lift */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+        }
+
+        /* Contact Info */
+        .contact-info {
+            text-align: center;
+            margin-top: 50px; /* More space from program grid */
+            padding-top: 35px; /* More padding */
+            border-top: 1px solid #f0f0f0; /* Lighter border */
+            color: #555; /* Softer color for contact text */
+        }
+
+        .contact-info p {
+            margin: 12px 0; /* More spacing */
+            font-size: 17px; /* Larger font for contact info */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info i {
+            color: #0f4c81; /* Darker blue for icons */
+            margin-right: 12px; /* More space from text */
+            width: 25px; /* Fixed width for alignment */
+            text-align: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .program-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+            .container {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .logo-icon-circle {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .logo-text h1 {
+                font-size: 22px;
+            }
+
+            .logo-text p {
+                font-size: 14px;
+            }
+
+            .title {
+                font-size: 32px;
+                margin: 20px 0 15px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr; /* Stack cards on small screens */
+                gap: 25px;
+            }
+
+            .program-card {
+                padding: 25px;
+            }
+
+            .program-card h3 {
+                font-size: 24px;
+            }
+
+            .program-card p {
+                font-size: 16px;
+            }
+
+            .program-card .btn {
+                padding: 14px 25px;
+                font-size: 16px;
+            }
+
+            .contact-info {
+                margin-top: 40px;
+                padding-top: 30px;
+            }
+            .contact-info p {
+                flex-direction: column; /* Stack contact info vertically */
+                align-items: center;
+                text-align: center;
+            }
+            .contact-info i {
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 15px;
+            }
+            .header {
+                padding: 25px 15px;
+            }
+            .logo-icon-circle {
+                width: 60px;
+                height: 60px;
+            }
+            .logo-icon-circle i {
+                font-size: 35px;
+            }
+            .logo-text h1 {
+                font-size: 18px;
+            }
+            .logo-text p {
+                font-size: 13px;
+            }
+            .title {
+                font-size: 28px;
+            }
+            .subtitle {
+                font-size: 16px;
+            }
+            .content {
+                padding: 25px 15px;
+            }
+            .program-card {
+                padding: 20px;
+            }
+            .program-card h3 {
+                font-size: 20px;
+            }
+            .program-card p {
+                font-size: 15px;
+            }
+            .program-card .btn {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+            .contact-info p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon-circle">
+                    <i class="fas fa-graduation-cap" style="font-size: 40px; color: #0d4a96;"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>GLOBAL COLLEGE OF ENGINEERING & TECHNOLOGY, KADAPA</h1>
+                    <p>Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur</p>
+                </div>
+            </div>
+            <h2 class="title">Choose Your Path to Excellence</h2>
+            <p class="subtitle">Select a program below to begin your admission pre-booking for the 2025-26 academic year.</p>
+        </div>
+        
+        <div class="content">
+            <div class="program-grid">
+                <!-- B.Tech Program Card -->
+                <div class="program-card">
+                    <h3>B.Tech Program</h3>
+                    <p>Embark on a journey of innovation and engineering. Our Bachelor of Technology programs offer cutting-edge curriculum and hands-on experience in various disciplines.</p>
+                    <a href="btech2.html" class="btn">B.Tech Admission Pre-Booking Click Here</a>
+                </div>
+
+                <!-- M.Tech Program Card -->
+                <div class="program-card">
+                    <h3>M.Tech Program</h3>
+                    <p>Elevate your technical expertise with our Master of Technology programs. Designed for advanced learning and research, preparing you for leadership in specialized fields.</p>
+                    <a href="mtech2.html" class="btn">M.Tech Admission Pre-Booking Click Here</a>
+                </div>
+
+                <!-- MBA Program Card -->
+                <div class="program-card">
+                    <h3>MBA Program</h3>
+                    <p>Develop strategic business acumen and leadership skills. Our Master of Business Administration program prepares you for dynamic roles in the global corporate landscape.</p>
+                    <a href="mba.html" class="btn">MBA Admission Pre-Booking Click Here</a>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> Admission Helpline: 9398302073, 7729988041</p>
+                <p><i class="fas fa-envelope"></i> Email: admissions.glbc@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Near Toll Plaza, NH-40, Chinnamachupalli (V), Chennur (M), KADAPA - 516 162</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // No specific JavaScript needed for redirection on this page,
+        // as the links are direct hrefs.
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Enhanced program selection page loaded.');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Global College of Engineering & Technology, Kadapa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+   <style>
+
+
+/* General Styles */
+:root {
+    --primary-color: #003366;
+    --secondary-color: #e74c3c;
+    --accent-color: #f39c12;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --text-color: #333;
+    --text-light: #777;
+    --white: #fff;
+    --black: #000;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info span {
+    margin-right: 20px;
+}
+
+.contact-info i {
+    margin-right: 5px;
+}
+
+.social-icons a {
+    color: var(--white);
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+/* Navigation */
+.navbar {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item a {
+    color: var(--white);
+    padding: 15px 20px;
+    display: block;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-item.active a,
+.nav-item a:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+}
+
+/* Page Hero */
+.page-hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+}
+
+.page-hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.page-hero p {
+    font-size: 18px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Gallery Filters */
+.gallery-filters {
+    padding: 30px 0;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background-color: var(--light-color);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Gallery Grid */
+.gallery-grid-section {
+    padding: 60px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 51, 102, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: var(--white);
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.gallery-overlay p {
+    color: var(--white);
+    font-weight: 500;
+    text-align: center;
+    padding: 0 15px;
+}
+
+/* Video Gallery */
+.video-gallery {
+    padding: 60px 0;
+    background-color: var(--white);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin: 15px auto 0;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.video-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-item h3 {
+    padding: 15px;
+    text-align: center;
+    background-color: var(--light-color);
+}
+
+/* Footer */
+/* .footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    padding: 60px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.footer-col p {
+    margin-bottom: 15px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.footer-social a:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.footer-col ul li a:hover {
+    color: var(--secondary-color);
+    padding-left: 5px;
+}
+
+.footer-col i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    color: var(--text-light);
+} */
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background-color: var(--primary-color);
+        width: 100%;
+        flex-direction: column;
+        transition: 0.3s;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        text-align: center;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .page-hero h1 {
+        font-size: 32px;
+    }
+    
+    .page-hero p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-info {
+        margin-bottom: 10px;
+    }
+    
+    .filter-buttons {
+        gap: 5px;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-hero {
+        padding: 60px 0;
+    }
+    
+    .page-hero h1 {
+        font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 26px;
+    }
+}
+   </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 9398302073, 7729988041</span>
+                <span><i class="fas fa-envelope"></i> admissions.glbc@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="particles" id="particles-js"></div>
+        <div class="shape triangle" style="top: 10%; left: 5%; animation-duration: 40s;"></div>
+        <div class="shape square" style="bottom: 10%; right: 5%; animation-duration: 50s;"></div>
+        <div class="shape circle" style="top: 30%; right: 10%; animation-duration: 60s;"></div>
+        
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.jpg" alt="Global College Logo">
+                <div class="logo-text">
+                    <h1>GLOBAL COLLEGE OF ENGINEERING & TECHNOLOGY, KADAPA</h1>
+                    <p class="approved">(Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur, Recognized by UGC & ISO 9001-2015)</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Admissions Open Sliding Banner -->
+    <div class="admissions-slide">
+        <div class="slide-container">
+            <span class="slide-text">ADMISSIONS OPEN 2025-26</span>
+            <span>For B.Tech, M.Tech & MBA Programs</span>
+            <a href="prebooking.html" class="slide-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="courses.html">Courses</a></li>
+                <li class="nav-item"><a href="facilities.html">Facilities</a></li>
+                <li class="nav-item"><a href="placements.html">Placements</a></li>
+                <li class="nav-item active"><a href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a href="admissions.html">Admissions</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <section class="page-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+        <div class="container">
+            <h1 style="color: aliceblue";>Campus Gallery</h1>
+            <p>Explore Our World Through Images</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="gallery-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="campus">Campus</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+                <button class="filter-btn" data-filter="sports">Sports</button>
+                <button class="filter-btn" data-filter="classrooms">Classrooms</button>
+                <button class="filter-btn" data-filter="labs">Labs</button>
+                <button class="filter-btn" data-filter="placement">Placements</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <!-- <section class="gallery-grid-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <a href="images/gallery/campus1.jpg" class="gallery-item" data-category="campus">
+                    <img src="images/gallery/campus1-thumb.jpg" alt="Campus View">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Campus View</p>
+                    </div>
+                </a>
+                <a href="images/gallery/event1.jpg" class="gallery-item" data-category="events">
+                    <img src="images/gallery/event1-thumb.jpg" alt="College Fest">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Annual Fest</p>
+                    </div>
+                </a>
+                <a href="images/gallery/lab1.jpg" class="gallery-item" data-category="labs">
+                    <img src="images/gallery/lab1-thumb.jpg" alt="Computer Lab">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Computer Lab</p>
+                    </div>
+                </a>
+                <a href="images/gallery/sports1.jpg" class="gallery-item" data-category="sports">
+                    <img src="images/gallery/sports1-thumb.jpg" alt="Sports Day">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Sports Day</p>
+                    </div>
+                </a>
+                <a href="images/gallery/class1.jpg" class="gallery-item" data-category="classrooms">
+                    <img src="images/gallery/class1-thumb.jpg" alt="Smart Classroom">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Smart Classroom</p>
+                    </div>
+                </a>
+                <a href="images/gallery/placement1.jpg" class="gallery-item" data-category="placement">
+                    <img src="images/gallery/placement1-thumb.jpg" alt="Placement Drive">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Placement Drive</p>
+                    </div>
+                </a>
+                <a href="images/gallery/campus2.jpg" class="gallery-item" data-category="campus">
+                    <img src="images/gallery/campus2-thumb.jpg" alt="Campus Garden">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Campus Garden</p>
+                    </div>
+                </a>
+                <a href="images/gallery/event2.jpg" class="gallery-item" data-category="events">
+                    <img src="images/gallery/event2-thumb.jpg" alt="Technical Symposium">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Technical Symposium</p>
+                    </div>
+                </a>
+                <a href="images/gallery/lab2.jpg" class="gallery-item" data-category="labs">
+                    <img src="images/gallery/lab2-thumb.jpg" alt="Electronics Lab">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Electronics Lab</p>
+                    </div>
+                </a>
+                <a href="images/gallery/sports2.jpg" class="gallery-item" data-category="sports">
+                    <img src="images/gallery/sports2-thumb.jpg" alt="Cricket Match">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Cricket Match</p>
+                    </div>
+                </a>
+                <a href="images/gallery/class2.jpg" class="gallery-item" data-category="classrooms">
+                    <img src="images/gallery/class2-thumb.jpg" alt="Lecture Hall">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Lecture Hall</p>
+                    </div>
+                </a>
+                <a href="images/gallery/placement2.jpg" class="gallery-item" data-category="placement">
+                    <img src="images/gallery/placement2-thumb.jpg" alt="Placement Training">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Placement Training</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Gallery Grid -->
+<section class="gallery-grid-section">
+    <div class="container">
+        <div class="gallery-grid">
+            <a href="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="campus">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Campus View">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Campus View</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="events">
+                <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="College Fest">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Annual Fest</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="labs">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Computer Lab">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Computer Lab</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="sports">
+                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sports Day">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Sports Day</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="classrooms">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Smart Classroom">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Smart Classroom</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="placement">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Placement Drive">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Placement Drive</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="campus">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Campus Garden">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Campus Garden</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="events">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Technical Symposium">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Technical Symposium</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="labs">
+                <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Electronics Lab">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Electronics Lab</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="sports">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Cricket Match">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Cricket Match</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="classrooms">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lecture Hall">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Lecture Hall</p>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="gallery-item" data-category="placement">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Placement Training">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                    <p>Placement Training</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Video Gallery -->
+    <section class="video-gallery">
+        <div class="container">
+            <h2 class="section-title">Campus Videos</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Campus Tour</h3>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Annual Day Celebration</h3>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <h3>Placement Drive</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Us</h3>
+                    <p>Global College of Engineering & Technology, Kadapa is committed to providing quality education with modern infrastructure and experienced faculty.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="facilities.html">Facilities</a></li>
+                        <li><a href="placements.html">Placements</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Courses</h3>
+                    <ul>
+                        <li><a href="courses.html#btech">B.Tech</a></li>
+                        <li><a href="courses.html#mtech">M.Tech</a></li>
+                        <li><a href="courses.html#mba">MBA</a></li>
+                        <li><a href="courses.html">All Courses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Near Toll Plaza, NH-40, Chinnamachupalli (V), Chennur (M), KADAPA - 516 162.</p>
+                    <p><i class="fas fa-phone"></i> 9398302073, 7729988041</p>
+                    <p><i class="fas fa-envelope"></i> admissions.glbc@gmail.com</p>
+                    <p><i class="fas fa-globe"></i> www.glbc.ac.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Global College of Engineering & Technology, Kadapa. All Rights Reserved.</p>
+                <p>Approved by AICTE, New Delhi & Affiliated to JNTUA, Anantapur, Recognized by UGC & ISO 9001-2015</p>
+            </div>
+        </div>
+    </footer>
+<a href="https://wa.me/919398302073" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize lightGallery
+        lightGallery(document.querySelector('.gallery-grid'), {
+            selector: '.gallery-item',
+            download: false,
+            counter: false
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Filter items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
